@@ -14,7 +14,7 @@ class _SplashscreenState extends State<Splashscreen> {
 
 @override
   void initState() {
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 4), () {
       Navigator.of(context).pushReplacementNamed('/home');
     });
     super.initState();
@@ -25,10 +25,18 @@ class _SplashscreenState extends State<Splashscreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Image.asset(
-          'assets/delivery.png',
-          width: 250,
-          height: 250,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/delivery.png',
+              width: 250,
+              height: 250,
+            ),
+            SizedBox(height: 25,),
+            Text('Welcome to Food Delivery App')
+          ],
         ),
       ),
     );
