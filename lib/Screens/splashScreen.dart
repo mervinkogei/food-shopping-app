@@ -34,8 +34,8 @@ class _SplashscreenState extends State<Splashscreen> {
               width: 250,
               height: 250,
             ),
-            SizedBox(height: 25,),
-            Text('Welcome to Food Delivery App')
+            const SizedBox(height: 25,),
+            const Text('Welcome to Food Delivery App')
           ],
         ),
       ),
