@@ -20,7 +20,71 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Column(
+          // padding: const EdgeInsets.all(0),
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+              ),
+              child: SizedBox(
+                height: 20,
+                child: UserAccountsDrawerHeader(
+                  decoration:
+                      BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.orangeAccent),
+                  accountName: const Text(""),
+                  accountEmail: const Text("Welcome Back!"),
+                  currentAccountPictureSize: const Size.square(72),
+                  currentAccountPicture: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(
+                        Icons.face,
+                        size: 48.0,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+           Expanded(
+             child: Column(
+              children: [
+                 ListTile(
+                leading: const Icon(Icons.shopping_cart_checkout),
+                title: const Text(' My Cart '),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.receipt_long_outlined),
+                title: const Text(' Shopping History '),
+                onTap: () {
+                  Navigator.pushNamed(context, '/history');
+                },
+              ),
+              ],
+             ),
+           ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: ListTile(
+                leading: const Icon(Icons.logout),
+                title: const Text('Exit'),
+                onTap: () {
+                  // Navigator.pushNamedAndRemoveUntil(
+                  //     context, '/login', (route) => false);
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -86,8 +150,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               ElevatedButton(
-                                style: ElevatedButton.styleFrom(backgroundColor: Colors.orangeAccent),
-                                onPressed: (){}, child: const Text('Add to Cart'))
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                                  backgroundColor: Colors.orangeAccent),
+                                onPressed: (){}, child: const Text('Add to Cart', style: TextStyle(color: Colors.white),))
                             ],
                           ),
                         );
