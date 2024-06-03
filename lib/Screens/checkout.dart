@@ -54,7 +54,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   
                 )
               ),
-              onPressed: (){}, child: Text('Pay Now', style: TextStyle(color: Colors.white),)))
+              onPressed: (){
+                Navigator.of(context).pop();
+                Navigator.pushReplacementNamed(context, '/payment');
+              }, child: const Text('Pay Now', style: TextStyle(color: Colors.white),)))
         ],
       ),
     );

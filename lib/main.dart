@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_shopping_app/Screens/checkout.dart';
+import 'package:food_shopping_app/Screens/confirm_payment.dart';
 import 'package:food_shopping_app/Screens/home.dart';
 import 'package:food_shopping_app/Screens/my_cart.dart';
 import 'package:food_shopping_app/Screens/splashScreen.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/cart':(context) => const MyCartScreen(),
         '/checkout':(context) => const CheckoutScreen(),
         '/history':(context) => const MyCartScreen(),
+        '/payment':(context) => const ConfirmPayment(),
       },
     );
   }
