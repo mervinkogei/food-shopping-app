@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_shopping_app/Screens/checkout.dart';
 import 'package:food_shopping_app/Screens/home.dart';
+import 'package:food_shopping_app/Screens/my_cart.dart';
 import 'package:food_shopping_app/Screens/splashScreen.dart';
 
 void main() {
@@ -22,7 +24,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/':(context) => const Splashscreen(),
-        '/home':(context) => const HomeScreen()
+        '/home':(context) => const HomeScreen(),
+        '/cart':(context) => const MyCartScreen(),
+        '/checkout':(context) => const CheckoutScreen(),
+        '/history':(context) => const MyCartScreen(),
       },
     );
   }

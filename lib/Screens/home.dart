@@ -58,14 +58,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: const Icon(Icons.shopping_cart_checkout),
                 title: const Text(' My Cart '),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/cart');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.receipt_long_outlined),
                 title: const Text(' Shopping History '),
                 onTap: () {
-                  Navigator.pushNamed(context, '/history');
+                  Navigator.pop(context);
                 },
               ),
               ],
@@ -77,8 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 leading: const Icon(Icons.logout),
                 title: const Text('Exit'),
                 onTap: () {
-                  // Navigator.pushNamedAndRemoveUntil(
-                  //     context, '/login', (route) => false);
+                   Navigator.pop(context);
                 },
               ),
             ),
