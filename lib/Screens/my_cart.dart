@@ -17,7 +17,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,22 +26,51 @@ class _MyCartScreenState extends State<MyCartScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20,),
-              Text('Here is a list of items on your shopping cart, please check before proceeding to checkout.',),
-                  ListView.builder(
-                    itemCount: 5,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index){
-                    return Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: ListTile(
-                        leading: Image.asset('assets/coffee.jpg'),
-                        title: const Text('Capuccino Cofee'),
-                        subtitle: const Text('Ksh 3200'),
-                      ),
-                    );
-                  }),
+              const SizedBox(height: 20,),
+              const Center(child: Text('List of items on your shopping cart:', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),)),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: ListView.builder(
+                        itemCount: 4,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index){
+                        return Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: Column(
+                            children: [
+                              const Divider(),
+                              ListTile(
+                                leading: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset('assets/coffee.jpg')),
+                                title: const Text('Capuccino Cofee'),
+                                subtitle: const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Qty: 1', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),),
+                                   Row(
+                                    children: [
+                                      Icon(Icons.add),
+                                      Icon(Icons.minimize),
+                                    ],
+                                   )
+                                  ],
+                                ),
+                                trailing: const Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(Icons.delete, color: Colors.redAccent,),
+                                    Text('Ksh 3200', style: TextStyle(fontSize: 12),),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
                 ],
               ),
             ),
