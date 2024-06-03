@@ -54,7 +54,15 @@ class _HomeScreenState extends State<HomeScreen> {
            Expanded(
              child: Column(
               children: [
-                 ListTile(
+              ListTile(
+                leading: const Icon(Icons.home_rounded),
+                title: const Text(' Home '),
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+
+              ListTile(
                 leading: const Icon(Icons.shopping_cart_checkout),
                 title: const Text(' My Cart '),
                 onTap: () {

@@ -92,7 +92,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                       )
                     ),
                     icon: const Icon(Icons.payment_sharp, color: Colors.white,),
-                    onPressed: (){}, label: const Text('Checkout Ksh ${30000.00}', style: TextStyle(color: Colors.white, fontSize: 18),)),
+                    onPressed: ()=>Navigator.pushNamed(context, '/checkout'), label: const Text('Checkout Ksh ${30000.00}', style: TextStyle(color: Colors.white, fontSize: 18),)),
                 ),
               ),
             )
