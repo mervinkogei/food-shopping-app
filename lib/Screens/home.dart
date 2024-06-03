@@ -24,29 +24,53 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                   color: Colors.grey
                 )),
                 enabledBorder: OutlineInputBorder(
                    borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                   color: Colors.grey
                 )),
                 focusedBorder: OutlineInputBorder(
                    borderRadius: BorderRadius.circular(20),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                   color: Colors.orangeAccent, width: 2
                 )),
                 hintText: 'Search your favorite food ....',
 
               ),
+            ),
+            const SizedBox(height: 15,),
+            const Text('Popular Food', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.orangeAccent),),
+            const SizedBox(height: 10,),
+
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    GridView.builder(
+                      itemCount: 20,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2), itemBuilder: (context, index){
+                        return const ListTile(
+                          title: Text('Title'),
+                        );
+                      })
+                  ],
+                ),
+              ),
             )
+
           ],
         ),
       )
