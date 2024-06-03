@@ -13,11 +13,14 @@ class _MyCartScreenState extends State<MyCartScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
+        leading: GestureDetector(
+          onTap: ()=>Navigator.of(context).pop(),
+          child: const Icon(Icons.arrow_back_ios_new_outlined, color: Colors.white,)),
         title: const Text('My Cart', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,6 +44,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                             children: [
                               const Divider(),
                               ListTile(
+                                dense: true,
                                 leading: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: Image.asset('assets/coffee.jpg')),
